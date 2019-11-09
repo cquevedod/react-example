@@ -10,7 +10,7 @@ const Course = ({ title, image, price, professor })  => (
         <div className="card__data s-border s-radius-br s-radius-bl s-pxy-2">
             <h3 className="center">{title}</h3>
             <div className="s-main-center">
-                {`Profesor: ${professor}`}
+                {`Professor: ${professor}`}
             </div>
             <div className="s-main-center">
                 <a className="button--ghost-alert button--tiny"

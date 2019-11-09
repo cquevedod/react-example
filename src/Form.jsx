@@ -43,7 +43,7 @@ class Form extends Component {
     render() {
         return (
             <div className="ed-grid">
-                <h1>Form {this.props.namee}</h1>
+                <h1>Form {this.props.formName}</h1>
                 <h4>Currently date: {Math.ceil(this.state.date/1000)}</h4>
                 <form id="element">
                     <div className="ed-grid m-grid-2">                   
