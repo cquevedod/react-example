@@ -1,23 +1,31 @@
 import React, {Component} from 'react';
 
-class Formulario extends Component {
+class Form extends Component {
 
     constructor(props) {
         super(props)
 
         this.state = {
-            nombre: "",
-            correo: ""
+            name: "",
+            email: "",
+            date: new Date(),
         }
 
         this.nameToCapital = this.nameToCapital.bind(this);
         this.showEmail = this.showEmail.bind(this);
+        this.changeDate = this.changeDate.bind(this);
+    }
+
+    changeDate(event) {
+        this.setState({
+            date: new Date(),
+        });
     }
 
     showEmail(event) {
         this.setState({
-            correo: event.target.value
-        })
+            email: event.target.value
+        });
     }
 
     nameToCapital(event, key) {
@@ -35,18 +43,19 @@ class Formulario extends Component {
     render() {
         return (
             <div className="ed-grid">
-                <h1>Formulario</h1>
-                <form action="/hola">
+                <h1>Form {this.props.namee}</h1>
+                <h4>Currently date: {Math.ceil(this.state.date/1000)}</h4>
+                <form id="element">
                     <div className="ed-grid m-grid-2">                   
                         <div className="form__item">
-                            <label>Nombre completo</label>
+                            <label>Full name</label>
                             <input
                                 type="text"
-                                onChange={(event) => this.nameToCapital(event, 'nombre')}
+                                onChange={(event) => this.nameToCapital(event, 'name')}
                             />
                         </div>
                         <div className="form__item">
-                            <label>Correo Electrónico</label>
+                            <label>Email</label>
                             <input 
                                 type="email" 
                                 onChange={this.showEmail}
@@ -55,12 +64,28 @@ class Formulario extends Component {
                     </div>
                 </form>
                 <div>
-                    <h2>{`Hola ${this.state.nombre}`}</h2>
-                    <span>{`Tu correo es: ${this.state.correo}`}</span>
+                    <h2>{`Hola ${this.state.name}`}</h2>
+                    <span>{`Tu correo es: ${this.state.email}`}</span>
                 </div>
             </div>
         )
     }
+
+    componentDidMount() {
+        let element = document.getElementById("element");
+        this.dateInterval = setInterval(() => { 
+            this.changeDate();
+            console.log(new Date())
+        }, 1000)
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        // console.log(prevState);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.dateInterval)
+    }          
 }
 
-export default Formulario;
+export default Form;
