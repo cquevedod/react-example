@@ -45,7 +45,7 @@ class Form extends Component {
             <div className="ed-grid">
                 <h1>Form {this.props.formName}</h1>
                 <h4>Currently date: {Math.ceil(this.state.date/1000)}</h4>
-                <form id="element">
+                <form id="form-element">
                     <div className="ed-grid m-grid-2">                   
                         <div className="form__item">
                             <label>Full name</label>
@@ -64,15 +64,16 @@ class Form extends Component {
                     </div>
                 </form>
                 <div>
-                    <h2>{`Hola ${this.state.name}`}</h2>
-                    <span>{`Tu correo es: ${this.state.email}`}</span>
+                    <h2>{`Hi ${this.state.name}`}</h2>
+                    <span>{`Your email is: ${this.state.email}`}</span>
                 </div>
             </div>
         )
     }
 
     componentDidMount() {
-        let element = document.getElementById("element");
+        let element = document.getElementById("form-element");
+        console.log(element);
         this.dateInterval = setInterval(() => { 
             this.changeDate();
             console.log(new Date())

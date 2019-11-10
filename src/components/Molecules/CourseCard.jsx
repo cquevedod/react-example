@@ -1,9 +1,9 @@
 import React from 'react';
-import './styles/styles.scss';
+import '../../styles/styles.scss';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
  
-const Course = ({ id, title, image, price, professor })  => (
+const CourseCard = ({ id, title, image, price, professor })  => (
     <article className="card">
         <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
             <Link to={`/courses/${id}`}>
@@ -13,7 +13,7 @@ const Course = ({ id, title, image, price, professor })  => (
         <div className="card__data s-border s-radius-br s-radius-bl s-pxy-2">
             <h3 className="center">{title}</h3>
             <div className="s-main-center">
-                {`Professor: ${professor}`}
+                {professor}
             </div>
             <div className="s-main-center">
                 <a className="button--ghost-alert button--tiny"
@@ -25,19 +25,18 @@ const Course = ({ id, title, image, price, professor })  => (
     </article>
   )
 
-
-Course.propTypes = {
+CourseCard.propTypes = {
   title: PropTypes.string,
   image: PropTypes.string,
   price: PropTypes.number,
   professor: PropTypes.string
 }
 
-Course.defaultProps = {
+CourseCard.defaultProps = {
   title: "Title not found",
   image: "Image not found",
   price: "--",
   professor: ""
 }
 
-export default Course;
+export default CourseCard;

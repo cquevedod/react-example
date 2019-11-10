@@ -1,8 +1,8 @@
 import React from 'react';
-import courses from './resources/data'
+import courses from '../../data/data'
 import { Link } from 'react-router-dom';
 
-const CourseInfo = ({ match }) => {
+const Course = ({ match }) => {
 
     const currentCourse = 
     courses
@@ -27,4 +27,4 @@ const CourseInfo = ({ match }) => {
     )
 }
    
-export default CourseInfo;
+export default Course;
