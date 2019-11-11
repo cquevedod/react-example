@@ -15,6 +15,8 @@ const MainMenu = () => (
                         <li><NavLink exact to="/" activeClassName="active"> Home </NavLink></li>
                         <li><NavLink to="/courses" activeClassName="active"> Courses </NavLink></li>
                         <li><NavLink to="/form" activeClassName="active"> Form </NavLink></li>
+                        <li><NavLink to="/users" activeClassName="active"> Users </NavLink></li>
+
                     </ul>
                 </nav>
                 <div className="main-menu-toggle to-l" id="main-menu-toggle"></div>

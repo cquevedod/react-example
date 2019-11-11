@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import MainMenu from './Organisms/MainMenu';
 import History from './Pages/History';
 import Home from './Pages/Home';
+import Users from './Pages/Users';
 
 const App = () => (
   <Router>
@@ -15,9 +16,10 @@ const App = () => (
       <Route path="/" exact component={ Home } />
       <Route path="/courses/:id" component={ Course } />
       <Route path="/courses" component={ CourseGrid } />
-      <Route path="/history/:valor" component={ History } />
+      <Route path="/history/:value" component={ History } />
       <Route path="/history" component={ History } />
       <Route path="/form" component={ () => <Form formName="contact page"/> } />
+      <Route path="/users" component={ Users } />
       <Route component={ () => (
         <div className="ed-grid">
           <h1>Error 404</h1>
