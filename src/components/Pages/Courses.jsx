@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import CourseCard from '../Molecules/CourseCard';
 import axios from 'axios';
+import CourseGrid from '../Organisms/CourseGrid';
 
 
 class Courses extends Component  {
@@ -21,29 +21,15 @@ class Courses extends Component  {
                 courses: resp.data
             })
         })
+        .catch(err => {
+            console.log(err);
+            alert(err);
+          });
     }
 
     render() {
         const { courses } = this.state
-        return (
-            <div className="ed-grid m-grid-4">
-                { 
-                    courses.length === 0
-                    ? <h1 className="t3">Loading...</h1>
-                    :
-                    courses.map(course => 
-                        <CourseCard
-                            key={course.id}
-                            id={course.id}
-                            title={course.title}
-                            image={course.image}
-                            price={course.price}
-                            professor={course.professor}
-                        />
-                    )
-                }
-            </div>
-        )
+        return <CourseGrid courses={courses}/>
     }
 }
 
