@@ -12,17 +12,6 @@ class Users extends Component {
         }
     }
 
-   /* componentDidMount() {
-        const URL = 'https://jsonplaceholder.typicode.com/users';
-        fetch(URL, {method: 'get'})
-            .then(resp => resp.json())
-            .then(data => {
-                this.setState({
-                    users: data
-                })
-            })
-    } */
-
     componentDidMount() {
         const URL = 'https://jsonplaceholder.typicode.com/users';
         axios.get(URL)
@@ -37,7 +26,6 @@ class Users extends Component {
           });
  
     }
-
 
     render() {
         const {users} = this.state
